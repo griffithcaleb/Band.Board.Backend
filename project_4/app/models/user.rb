@@ -55,7 +55,7 @@ def self.all
  end
 
 def self.find(id)
-  result = DB.exec_prepared("find_user",[id]).first
+  result = DB.exec_prepared("find_users",[id]).first
   return result
 end
 
