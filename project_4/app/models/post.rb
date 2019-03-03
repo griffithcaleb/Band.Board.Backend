@@ -27,6 +27,7 @@ WHERE id=$1
 RETURNING id;
 SQL
 )
+
 DB.prepare("update_post",
     <<-SQL
       UPDATE posts
