@@ -1,4 +1,4 @@
-class Post
+class Test_post
 
 DB = PG.connect({:host => "localhost", :port => 5432, :dbname => 'project_4_development'})
 
@@ -13,9 +13,9 @@ SQL
 
 DB.prepare("create_post",
     <<-SQL
-      INSERT INTO posts (content,number_of_likes, author, date_published)
-      VALUES ( $1, $2, $3, $4 )
-      RETURNING id, content, number_of_likes, author, date_published;
+      INSERT INTO posts (content,number_of_likes, author, date_published, view)
+      VALUES ( $1, $2, $3, $4, $5 )
+      RETURNING id, content, number_of_likes, author, date_published,view;
     SQL
   )
 
@@ -49,6 +49,7 @@ def self.all
       "number_of_likes" => result["number_of_likes"].to_i,
       "author" => result["author"],
       "date_published" => result["date_published"],
+      "view" => result["view"]
     }
   end
  end
@@ -60,13 +61,14 @@ end
 
 def self.create(opts)
   results = DB.exec_prepared("create_post", [opts["content"],opts["number_of_likes"],
-    opts["author"],opts["date_published"]])
+    opts["author"],opts["date_published"],opts["view"]])
     return {
       "id" => results.first["id"].to_i,
       "content" => results.first["content"],
       "number_of_likes" => results.first["number_of_likes"].to_i,
       "author" => results.first["author"],
       "date_published" => results.first["date_published"],
+      "view"=>results.first["view"]
     }
 end
 
