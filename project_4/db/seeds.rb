@@ -1,10 +1,10 @@
 User.destroy_all
 Post.destroy_all
 
-nate = User.create!(username: 'nate', email: 'nate@gm.com',
+nate = User.create!(username: 'nate', email: 'nate@gm.com', name: "nate",
 password: '1234',instrument: 'guitar' ,bio: "likes long walks and good books",
 locations: "queens ny")
-caleb = User.create!(username: 'caleb', email: 'caleb@gm.com',
+caleb = User.create!(username: 'caleb', email: 'caleb@gm.com', name:'caleb',
 password: '1234', instrument: 'piano', bio:"single and ready to mingele",
 locations:"pittsburgh")
 

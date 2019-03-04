@@ -5,7 +5,12 @@ Rails.application.routes.draw do
  delete '/logout', to: 'sessions#destroy'
  get '/profile', to: 'users#profile'
  resources :users
- resources :posts
+
+ get '/posts', to: 'posts#index'
+ get '/posts/:id', to: 'posts#show'
+ post '/posts', to: 'posts#create'
+ put '/posts/:id', to: 'posts#edit'
+ delete '/posts/:id', to: 'posts#delete'
 
 
  get "/test", to: "test_post#index"

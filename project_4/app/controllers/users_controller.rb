@@ -10,7 +10,8 @@ class UsersController < ApiController
     user = User.find_by_auth_token!(request.headers[:token])
     user_posts = user.posts
     render json: {user: {username: user.username,
-       email: user.email, name: user.name},
+       email: user.email, name: user.name,instrument: user.instrument,
+     bio: user.bio, locations: user.locations },
      posts: user_posts}
   end
 
