@@ -8,11 +8,11 @@ Rails.application.routes.draw do
  resources :posts
 
 
- get "/test", to: "testpost#index"
- get "/test/:id", to: "testpost#show"
- post "/test", to: "testpost#create"
- delete "/test/:id", to: "testpost#delete"
- put '/test/:id', to: "testpost#update"
+ get "/test", to: "test_post#index"
+ get "/test/:id", to: "test_post#show"
+ post "/test", to: "test_post#create"
+ delete "/test/:id", to: "test_post#delete"
+ put '/test/:id', to: "test_post#update"
 
 
 

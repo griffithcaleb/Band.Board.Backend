@@ -5,15 +5,15 @@ DB = PG.connect({:host => "localhost", :port => 5432, :dbname => 'project_4_deve
 
 DB.prepare("find_post",
 <<-SQL
-SELECT posts.*
-FROM posts
-WHERE posts.id = $1
+SELECT billboard.*
+FROM billboard
+WHERE billboard.id = $1
 SQL
 )
 
 DB.prepare("create_post",
     <<-SQL
-      INSERT INTO posts (content,number_of_likes, author, date_published, view)
+      INSERT INTO billboard (content,number_of_likes, author, date_published, view)
       VALUES ( $1, $2, $3, $4, $5 )
       RETURNING id, content, number_of_likes, author, date_published,view;
     SQL
@@ -22,7 +22,7 @@ DB.prepare("create_post",
 
 DB.prepare("delete_post",
 <<-SQL
-DELETE FROM posts
+DELETE FROM billboard
 WHERE id=$1
 RETURNING id;
 SQL
@@ -30,7 +30,7 @@ SQL
 
 DB.prepare("update_post",
     <<-SQL
-      UPDATE posts
+      UPDATE billboard
       SET content = $2, number_of_likes = $3, author = $4, date_published =$5
       WHERE id = $1
       RETURNING id, content, number_of_likes, author, date_published;
@@ -41,7 +41,7 @@ DB.prepare("update_post",
 
 
 def self.all
-  results = DB.exec("SELECT * FROM posts")
+  results = DB.exec("SELECT * FROM billboard")
   return results.map do |result|
     {
       "id" => result["id"].to_i,
@@ -90,5 +90,5 @@ def self.update(id,opts)
     }
 
 
-
+ end
 end
