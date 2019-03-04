@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  delete '/logout', to: 'sessions#destroy'
  get '/profile', to: 'users#profile'
  resources :users
+ resources :posts
 
 
 
