@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2019_03_03_221316) do
     t.string "password_digest"
     t.string "email"
     t.string "name"
+    t.string "instrument"
+    t.string "bio"
+    t.string "locations"
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
