@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
- get "/users", to: "users#index"
- get "/users/:id", to: "users#show"
- post "/users", to: "users#create"
- delete "/users/:id", to: "users#delete"
- put '/users/:id', to: "users#update"
- get "/posts", to: "post#index"
- get "/posts/:id", to: "post#show"
- post "/posts", to: "post#create"
- delete "/posts/:id", to: "post#delete"
- put '/posts/:id', to: "post#update"
+
+ # auth routs
+ post '/login', to: 'sessions#create'
+ delete '/logout', to: 'sessions#destroy'
+ get '/profile', to: 'users#profile'
+ put "/users/:id", to: 'users#edit'
+ resources :users
+
+ get '/posts', to: 'posts#index'
+ get '/posts/:id', to: 'posts#show'
+ post '/posts', to: 'posts#create'
+ put '/posts/:id', to: 'posts#edit'
+ delete '/posts/:id', to: 'posts#delete'
+
+
+ get "/test", to: "test_post#index"
+ get "/test/:id", to: "test_post#show"
+ post "/test", to: "test_post#create"
+ delete "/test/:id", to: "test_post#delete"
+ put '/test/:id', to: "test_post#update"
+
 
 
 
