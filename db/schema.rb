@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_140132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "billboard", id: false, force: :cascade do |t|
-    t.string "content", limit: 50
-    t.integer "number_of_likes"
-    t.string "author", limit: 30
-    t.string "date_published", limit: 16
-    t.string "view", limit: 20
-    t.serial "id", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string "sent_name"
     t.string "sent_user"
