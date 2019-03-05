@@ -14,11 +14,8 @@ Rails.application.routes.draw do
  delete '/posts/:id', to: 'posts#delete'
 
 
- get "/test", to: "test_post#index"
- get "/test/:id", to: "test_post#show"
- post "/test", to: "test_post#create"
- delete "/test/:id", to: "test_post#delete"
- put '/test/:id', to: "test_post#update"
+ get "/messages", to: "messages#index"
+ post '/messages', to: 'messages#create'  
 
 
 
