@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_221316) do
+ActiveRecord::Schema.define(version: 2019_03_05_140132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2019_03_03_221316) do
     t.string "date_published", limit: 16
     t.string "view", limit: 20
     t.serial "id", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "sent_name"
+    t.string "sent_user"
+    t.integer "sent_id"
+    t.string "message"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
