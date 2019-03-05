@@ -11,7 +11,7 @@ class UsersController < ApiController
     user_posts = user.posts
     render json: {user: {username: user.username,
        email: user.email, name: user.name,instrument: user.instrument,
-     bio: user.bio, locations: user.locations },
+     bio: user.bio, locations: user.locations, id: user.id },
      posts: user_posts}
   end
 
