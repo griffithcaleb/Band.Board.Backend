@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
  get "/messages", to: "messages#index"
- post '/messages', to: 'messages#create'  
+ post '/messages', to: 'messages#create'
 
 
 
