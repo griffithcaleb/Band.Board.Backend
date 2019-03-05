@@ -15,6 +15,10 @@ class UsersController < ApiController
      posts: user_posts}
   end
 
+  def edit
+      render json: User.update(params["id"],params["user"])
+  end
+
   private
 
   def user_params

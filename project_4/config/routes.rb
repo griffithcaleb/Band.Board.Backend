@@ -4,6 +4,7 @@ Rails.application.routes.draw do
  post '/login', to: 'sessions#create'
  delete '/logout', to: 'sessions#destroy'
  get '/profile', to: 'users#profile'
+ put "/users/:id", to: 'users#edit'
  resources :users
 
  get '/posts', to: 'posts#index'
